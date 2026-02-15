@@ -1,7 +1,8 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { QUOTES, SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+const quote_index = Math.floor(Math.random() * QUOTES.length);
 ---
 
 <!doctype html>
@@ -49,9 +50,14 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
         <div class="quote">
           <div class="quote-symbol">"</div>
-          <div>No mind to think.</div>
-          <div>No will to break.</div>
-          <div>No voice to cry suffering.</div>
+          {
+            QUOTES[quote_index].text.map((line) => <div>{line}</div>)
+          }
+          {
+            QUOTES[quote_index].author && (
+              <div class="quote-author">- {QUOTES[quote_index].author}</div>
+            )
+          }
         </div>
         <img src="../../src/assets/bottom0_light.png" />
       </div>
