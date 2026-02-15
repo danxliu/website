@@ -9,10 +9,20 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
-		.content p {
-			align-self: flex-start;
-			text-align: left;
-		}
+      .content p {
+        align-self: flex-start;
+        text-align: left;
+      }
+
+      .socials {
+		display: flex;
+		flex-direction: column;
+        align-self: flex-start;
+		gap: 0;
+      }
+	  .socials p {
+		margin: 0px;
+	  }
     </style>
   </head>
   <body>
@@ -29,8 +39,19 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
           Berkeley's Upsilon Pi Epsilon (UPE) chapter.
         </p>
         <div></div>
-		<p>At school, I'm a member of the <a href="https://ocf.io" target="_blank">Open Computing Facility</a> Board of Directors.</p>
-		<div></div>
+        <p>
+          At school, I'm a member of the <a
+            href="https://ocf.io"
+            target="_blank">Open Computing Facility</a
+          > Board of Directors.
+        </p>
+        <div>------</div>
+        <div class="socials">
+          <p>email: <a href="mailto:danielliu@berkeley.edu">danielliu@berkeley.edu</a></p>
+          <p>github: <a href="https://github.com/danxliu">danxliu</a></p>
+          <p>discord: untrustedaccount</p>
+          <p>steam: <a href="https://steamcommunity.com/id/untrusted_account">untrusted_account</a></p>
+        </div>
         <img class="decoration" src="../../src/assets/bottom1_light.png" />
       </div>
     </main>
