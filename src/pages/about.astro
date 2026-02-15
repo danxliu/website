@@ -1,7 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+
+import top1 from "../assets/top1_light.png";
+import bottom1 from "../assets/bottom1_light.png";
 ---
 
 <!doctype html>
@@ -29,7 +33,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     <Header />
     <main>
       <div class="content">
-        <img class="decoration" src="../../src/assets/top1_light.png" />
+        <Image class="decoration" src={top1} alt="" />
         <h1>ABOUT ME</h1>
         <div>------</div>
         <p>Welcome to my website!</p>
@@ -52,7 +56,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
           <p>discord: untrustedaccount</p>
           <p>steam: <a href="https://steamcommunity.com/id/untrusted_account">untrusted_account</a></p>
         </div>
-        <img class="decoration" src="../../src/assets/bottom1_light.png" />
+        <Image class="decoration" src={bottom1} alt="" />
       </div>
     </main>
   </body>

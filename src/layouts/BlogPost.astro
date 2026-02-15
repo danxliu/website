@@ -5,6 +5,9 @@ import BaseHead from "../components/BaseHead.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
 
+import top1 from "../assets/top1_light.png";
+import bottom1 from "../assets/bottom1_light.png";
+
 type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate, updatedDate } = Astro.props;
@@ -36,7 +39,7 @@ const { title, description, pubDate, updatedDate } = Astro.props;
     <main>
       <article>
         <div class="content">
-          <img class="decoration" src="../../src/assets/top1_light.png" />
+          <Image class="decoration" src={top1} alt="" />
           <div class="title">
             <div class="date">
               <FormattedDate date={pubDate} />
@@ -52,7 +55,7 @@ const { title, description, pubDate, updatedDate } = Astro.props;
             <div>------</div>
           </div>
           <slot />
-          <img class="decoration" src="../../src/assets/bottom1_light.png" />
+          <Image class="decoration" src={bottom1} alt="" />
         </div>
       </article>
     </main>

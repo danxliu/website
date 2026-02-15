@@ -1,9 +1,13 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import BaseHead from "../../components/BaseHead.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 import Header from "../../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+
+import top1 from "../../assets/top1_light.png";
+import bottom1 from "../../assets/bottom1_light.png";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -49,7 +53,7 @@ const posts = (await getCollection("blog")).sort(
     <main>
       <section>
         <div class="content">
-          <img src="../../src/assets/top1_light.png" />
+          <Image src={top1} alt="" />
           <div class="posts">
             <ul>
               {
@@ -66,7 +70,7 @@ const posts = (await getCollection("blog")).sort(
               }
             </ul>
           </div>
-          <img src="../../src/assets/bottom1_light.png" />
+          <Image src={bottom1} alt="" />
         </div>
       </section>
     </main>
