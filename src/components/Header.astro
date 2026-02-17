@@ -4,8 +4,33 @@
     <a href="/blog">Blog</a>
     <a href="/work">Work</a>
     <a href="/about">About</a>
+    <div style="flex-grow: 1"></div>
+    <div id="theme-toggle" aria-label="Toggle theme">Dark</div>
   </nav>
 </header>
+
+<script>
+  const toggle = document.getElementById("theme-toggle");
+
+  const updateButtonText = (theme: string) => {
+    if (toggle) {
+      toggle.innerText = theme === "light" ? "Dark" : "Light";
+    }
+  };
+
+  const theme = document.documentElement.dataset.theme || "light";
+  updateButtonText(theme);
+
+  toggle?.addEventListener("click", () => {
+    const currentTheme = document.documentElement.dataset.theme;
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+
+    document.documentElement.dataset.theme = newTheme;
+    localStorage.setItem("theme", newTheme);
+    updateButtonText(newTheme);
+  });
+</script>
+
 <style>
   nav {
     display: flex;
@@ -18,10 +43,17 @@
 
   nav a {
     text-decoration: none;
-    color: black;
+    color: var(--text-color);
   }
 
   nav a:hover {
-    color: #555555;
+    color: var(--accent-color);
+  }
+
+  #theme-toggle {
+    color: var(--text-color);
+    cursor: pointer;
+    font-family: Iosevka;
+    font-size: 18px;
   }
 </style>

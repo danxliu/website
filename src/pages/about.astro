@@ -4,8 +4,10 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
-import top1 from "../assets/top1_light.png";
-import bottom1 from "../assets/bottom1_light.png";
+import top1_light from "../assets/top1_light.png";
+import top1_dark from "../assets/top1_dark.png";
+import bottom1_light from "../assets/bottom1_light.png";
+import bottom1_dark from "../assets/bottom1_dark.png";
 import Separator from "../components/Separator.astro";
 ---
 
@@ -23,7 +25,8 @@ import Separator from "../components/Separator.astro";
     <Header />
     <main>
       <div class="content">
-        <Image class="decoration" src={top1} alt="" />
+        <Image class="decoration light-only" src={top1_light} alt="" />
+        <Image class="decoration dark-only" src={top1_dark} alt="" />
         <h1 class="page-title">ABOUT ME</h1>
         <div class="page-title"><Separator /></div>
         <p>Welcome to my website!</p>
@@ -42,7 +45,8 @@ import Separator from "../components/Separator.astro";
           >). I could also be working on my homelab or rewriting my Linux
           dotfiles again.
         </p>
-        <Image class="decoration" src={bottom1} alt="" />
+        <Image class="decoration light-only" src={bottom1_light} alt="" />
+        <Image class="decoration dark-only" src={bottom1_dark} alt="" />
       </div>
     </main>
   </body>

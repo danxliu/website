@@ -6,8 +6,10 @@ import FormattedDate from "../../components/FormattedDate.astro";
 import Header from "../../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 
-import top1 from "../../assets/top1_light.png";
-import bottom1 from "../../assets/bottom1_light.png";
+import top1_light from "../../assets/top1_light.png";
+import top1_dark from "../../assets/top1_dark.png";
+import bottom1_light from "../../assets/bottom1_light.png";
+import bottom1_dark from "../../assets/bottom1_dark.png";
 import Separator from "../../components/Separator.astro";
 
 const posts = (await getCollection("blog")).sort(
@@ -33,7 +35,7 @@ const posts = (await getCollection("blog")).sort(
         max-width: 600px;
       }
       ul li {
-        outline: 2px solid var(--gray);
+        outline: 2px solid var(--accent-color);
         padding: 1em;
         width: 100%;
       }
@@ -43,12 +45,12 @@ const posts = (await getCollection("blog")).sort(
       }
       .title {
         margin: 0;
-        color: rgb(var(--black));
+        color: var(--text-color);
         line-height: 1;
       }
       .date {
         margin: 0;
-        color: rgb(var(--gray));
+        color: var(--accent-color);
       }
     </style>
   </head>
@@ -57,7 +59,8 @@ const posts = (await getCollection("blog")).sort(
     <main>
       <section>
         <div class="content">
-          <Image class="decoration" src={top1} alt="" />
+          <Image class="decoration light-only" src={top1_light} alt="" />
+          <Image class="decoration dark-only" src={top1_dark} alt="" />
           <h1 class="page-title">BLOGS</h1>
           <div class="page-title"><Separator /></div>
           <ul>
@@ -74,7 +77,8 @@ const posts = (await getCollection("blog")).sort(
               ))
             }
           </ul>
-          <Image class="decoration" src={bottom1} alt="" />
+          <Image class="decoration light-only" src={bottom1_light} alt="" />
+          <Image class="decoration dark-only" src={bottom1_dark} alt="" />
         </div>
       </section>
     </main>

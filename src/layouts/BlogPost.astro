@@ -5,8 +5,10 @@ import BaseHead from "../components/BaseHead.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
 
-import top1 from "../assets/top1_light.png";
-import bottom1 from "../assets/bottom1_light.png";
+import top1_light from "../assets/top1_light.png";
+import top1_dark from "../assets/top1_dark.png";
+import bottom1_light from "../assets/bottom1_light.png";
+import bottom1_dark from "../assets/bottom1_dark.png";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -23,7 +25,7 @@ const { title, description, pubDate, updatedDate } = Astro.props;
         line-height: 1;
       }
       .date {
-        color: var(--gray);
+        color: var(--accent-color);
       }
       .last-updated-on {
         font-style: italic;
@@ -39,14 +41,16 @@ const { title, description, pubDate, updatedDate } = Astro.props;
     <main>
       <article>
         <div class="content">
-          <Image class="decoration" src={top1} alt="" />
+          <Image class="decoration light-only" src={top1_light} alt="" />
+          <Image class="decoration dark-only" src={top1_dark} alt="" />
           <h1 class="page-title">{title}</h1>
           <div class="page-title">------</div>
           <div class="date">
             <FormattedDate date={pubDate} />
           </div>
           <slot />
-          <Image class="decoration" src={bottom1} alt="" />
+          <Image class="decoration light-only" src={bottom1_light} alt="" />
+          <Image class="decoration dark-only" src={bottom1_dark} alt="" />
         </div>
       </article>
     </main>

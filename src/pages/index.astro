@@ -4,8 +4,10 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
-import top0 from "../assets/top0_light.png";
-import bottom0 from "../assets/bottom0_light.png";
+import top0_light from "../assets/top0_light.png";
+import top0_dark from "../assets/top0_dark.png";
+import bottom0_light from "../assets/bottom0_light.png";
+import bottom0_dark from "../assets/bottom0_dark.png";
 import Separator from "../components/Separator.astro";
 ---
 
@@ -29,7 +31,8 @@ import Separator from "../components/Separator.astro";
     <Header />
     <main>
       <div class="content">
-        <Image class="decoration" src={top0} alt="" />
+        <Image class="decoration light-only" src={top0_light} alt="" />
+        <Image class="decoration dark-only" src={top0_dark} alt="" />
         <h1 class="page-title">DANIEL LIU</h1>
         <div class="page-title"><Separator/></div>
         <div class="section">
@@ -48,7 +51,8 @@ import Separator from "../components/Separator.astro";
             >
           </div>
         </div>
-        <Image class="decoration" src={bottom0} alt="" />
+        <Image class="decoration light-only" src={bottom0_light} alt="" />
+        <Image class="decoration dark-only" src={bottom0_dark} alt="" />
       </div>
     </main>
   </body>
