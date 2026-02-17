@@ -6,6 +6,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
 import top1 from "../assets/top1_light.png";
 import bottom1 from "../assets/bottom1_light.png";
+import Separator from "../components/Separator.astro";
 ---
 
 <!doctype html>
@@ -13,20 +14,9 @@ import bottom1 from "../assets/bottom1_light.png";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
-      .content p {
-        align-self: flex-start;
-        text-align: left;
+      .socials p {
+        margin: 0px;
       }
-
-      .socials {
-		display: flex;
-		flex-direction: column;
-        align-self: flex-start;
-		gap: 0;
-      }
-	  .socials p {
-		margin: 0px;
-	  }
     </style>
   </head>
   <body>
@@ -34,28 +24,24 @@ import bottom1 from "../assets/bottom1_light.png";
     <main>
       <div class="content">
         <Image class="decoration" src={top1} alt="" />
-        <h1>ABOUT ME</h1>
-        <div>------</div>
+        <h1 class="page-title">ABOUT ME</h1>
+        <div class="page-title"><Separator /></div>
         <p>Welcome to my website!</p>
         <p>
           My name is Daniel Liu, and I'm a Senior at UC Berkeley majoring in
-          Computer Science and minoring in Data Science. I am also a part of
-          Berkeley's Upsilon Pi Epsilon (UPE) chapter.
+          Computer Science and minoring in Data Science. At school, I'm a member
+          of the <a href="https://ocf.io" target="_blank"
+            >Open Computing Facility</a
+          >.
         </p>
-        <div></div>
         <p>
-          At school, I'm a member of the <a
-            href="https://ocf.io"
-            target="_blank">Open Computing Facility</a
-          > Board of Directors.
+          Outside of school, I enjoy hiking, swimming, and table tennis. I play
+          way too many games, mostly fps or open world games (1v1 me <a
+            href="https://store.steampowered.com/app/2386720/STRAFTAT/"
+            >straftat</a
+          >). I could also be working on my homelab or rewriting my Linux
+          dotfiles again.
         </p>
-        <div>------</div>
-        <div class="socials">
-          <p>email: <a href="mailto:danielliu@berkeley.edu">danielliu@berkeley.edu</a></p>
-          <p>github: <a href="https://github.com/danxliu">danxliu</a></p>
-          <p>discord: untrustedaccount</p>
-          <p>steam: <a href="https://steamcommunity.com/id/untrusted_account">untrusted_account</a></p>
-        </div>
         <Image class="decoration" src={bottom1} alt="" />
       </div>
     </main>

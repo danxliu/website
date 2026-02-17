@@ -2,12 +2,11 @@
 import { Image } from "astro:assets";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
-import { QUOTES, SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
 import top0 from "../assets/top0_light.png";
 import bottom0 from "../assets/bottom0_light.png";
-
-const quote_index = Math.floor(Math.random() * QUOTES.length);
+import Separator from "../components/Separator.astro";
 ---
 
 <!doctype html>
@@ -15,25 +14,14 @@ const quote_index = Math.floor(Math.random() * QUOTES.length);
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
-      .quote {
-        position: relative;
+      .content {
+        align-items: center;
+      }
+      .socials {
         display: flex;
         flex-direction: column;
-        background-color: var(--light-gray);
-        padding: 1.4em;
-        margin: 1.2em;
-        gap: 0.5em;
-        min-width: 12vw;
-      }
-
-      .quote-author {
-        align-self: flex-end;
-      }
-
-      .quote-symbol {
-        position: absolute;
-        top: 0.5em;
-        left: 0.5em;
+        align-self: flex-start;
+        gap: 0;
       }
     </style>
   </head>
@@ -41,30 +29,26 @@ const quote_index = Math.floor(Math.random() * QUOTES.length);
     <Header />
     <main>
       <div class="content">
-        <Image src={top0} alt="" />
-        <h1>DANIEL LIU</h1>
-        <div>------</div>
-        <div>danielliu@berkeley.edu</div>
-        <div>------</div>
-
+        <Image class="decoration" src={top0} alt="" />
+        <h1 class="page-title">DANIEL LIU</h1>
+        <div class="page-title"><Separator/></div>
         <div class="section">
-          <div>CS & DS @ UC Berkeley.</div>
-          <div>Graduating Spring 26.</div>
-          <div>Prev SWE Intern @ IBM, Amazon, TikTok</div>
+          <div>cs & ds @ berkeley.</div>
+          <div>graduating spring 2026.</div>
+          <div>prev intern @ IBM, Amazon, TikTok</div>
         </div>
-
-        <!-- <div class="quote">
-          <div class="quote-symbol">"</div>
-          {
-            QUOTES[quote_index].text.map((line) => <div>{line}</div>)
-          }
-          {
-            QUOTES[quote_index].author && (
-              <div class="quote-author">- {QUOTES[quote_index].author}</div>
-            )
-          }
-        </div> -->
-        <Image src={bottom0} alt="" />
+        <Separator />
+        <div class="section">
+          <div>email: danielliu[at]berkeley[dot]edu</div>
+          <div>github: <a href="https://github.com/danxliu">danxliu</a></div>
+          <div>discord: untrustedaccount</p>
+          <div>
+            steam: <a href="https://steamcommunity.com/id/untrusted_account"
+              >untrusted_account</a
+            >
+          </div>
+        </div>
+        <Image class="decoration" src={bottom0} alt="" />
       </div>
     </main>
   </body>

@@ -14,3 +14,5 @@ Switching to light mode makes it so much easier to read the laptop screen, and s
 Also there is something nice about light windows with dark shadows against a light background idk.
 
 My terminal stays dark mode though.
+
+(UPDATE: I have switched my terminal and code editors to light mode as of 02/16/2026.)
