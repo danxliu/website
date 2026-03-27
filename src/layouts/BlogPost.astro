@@ -1,15 +1,8 @@
 ---
-import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
-
-import top1_light from "../assets/top1_light.png";
-import top1_dark from "../assets/top1_dark.png";
-import bottom1_light from "../assets/bottom1_light.png";
-import bottom1_dark from "../assets/bottom1_dark.png";
-
 type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate, updatedDate } = Astro.props;
@@ -18,40 +11,17 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
-    <style>
-      .title {
-        width: 100%;
-        text-align: left;
-        line-height: 1;
-      }
-      .date {
-        color: var(--accent-color);
-      }
-      .last-updated-on {
-        font-style: italic;
-      }
-      .content {
-        align-items: flex-start;
-      }
-    </style>
   </head>
 
   <body>
     <Header />
     <main>
       <article>
-        <div class="content">
-          <Image class="decoration light-only" src={top1_light} alt="" />
-          <Image class="decoration dark-only" src={top1_dark} alt="" />
-          <h1 class="page-title">{title}</h1>
-          <div class="page-title">------</div>
-          <div class="date">
-            <FormattedDate date={pubDate} />
-          </div>
-          <slot />
-          <Image class="decoration light-only" src={bottom1_light} alt="" />
-          <Image class="decoration dark-only" src={bottom1_dark} alt="" />
-        </div>
+        <h1>{title}</h1>
+        <time datetime={pubDate.toISOString()}>
+          <FormattedDate date={pubDate} />
+        </time>
+        <slot />
       </article>
     </main>
   </body>

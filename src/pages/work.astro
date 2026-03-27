@@ -1,141 +1,50 @@
 ---
-import { Image } from "astro:assets";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
-
-import top1_light from "../assets/top1_light.png";
-import top1_dark from "../assets/top1_dark.png";
-import bottom1_light from "../assets/bottom1_light.png";
-import bottom1_dark from "../assets/bottom1_dark.png";
-import Separator from "../components/Separator.astro";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style>
-      .title {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-      .role {
-        color: var(--accent-color);
-      }
-      .location {
-        color: var(--accent-color);
-        font-style: italic;
-      }
-
-      ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: wrap;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        max-width: 800px;
-      }
-    </style>
   </head>
   <body>
     <Header />
     <main>
-      <div class="content">
-        <Image class="decoration light-only" src={top1_light} alt="" />
-        <Image class="decoration dark-only" src={top1_dark} alt="" />
-        <h1 class="page-title">WORK EXPERIENCE</h1>
-        <div class="page-title"><Separator /></div>
-        <ul>
-          <li>
-            <div class="title">
-              <div>TikTok | Multimedia AI</div>
-              <div>Aug 2025 - Nov 2025</div>
-            </div>
-            <div class="title">
-              <div class="role">Software Intern</div>
-              <div class="location">San Jose, CA</div>
-            </div>
-            <p>
-              Developed Deep Neural Networks and XGBoost models to predict user
-              language understanding from user data.
-            </p>
-          </li>
-          <Separator />
-          <li>
-            <div class="title">
-              <div>Amazon | Kindle</div>
-              <div>May 2025 - Aug 2025</div>
-            </div>
-            <div class="title">
-              <div class="role">Software Intern</div>
-              <div class="location">Sunnyvale, CA</div>
-            </div>
-            <p>
-              Created a low-latency screensharing feature for Kindle. Recreates
-              the Kindle screen on a web browser based on X11 damage events and Kindle draw events
-              sent through SSE.
-            </p>
-            <p>
-              Implemented an internal dashboard for monitoring Kindle builds,
-              commits, and size changes. Includes a chatbot for crash analytics
-              and build change information.
-            </p>
-          </li>
-          <Separator />
-          <li>
-            <div class="title">
-              <div>IBM | FileNet Content Manager</div>
-              <div>Jan 2025 - May 2025</div>
-            </div>
-            <div class="title">
-              <div class="role">Software Intern</div>
-              <div class="location">San Jose, CA</div>
-            </div>
-            <p>
-              Built unified production scripts for customer log collection.
-              Created unit tests for Python AWS Lambda functions.
-            </p>
-          </li>
-          <Separator />
-          <li>
-            <div class="title">
-              <div>Department of Defense</div>
-              <div>Jun 2024 - Aug 2024</div>
-            </div>
-            <div class="title">
-              <div class="role">Software Intern</div>
-              <div class="location">Keyport, WA</div>
-            </div>
-            <p>
-              Developed a lightweight web application for signal analysis of
-              torpedo tests. Refactored low-level signal processing code to
-              significantly improve performance and stability.
-            </p>
-          </li>
-          <Separator />
-          <li>
-            <div class="title">
-              <div>XCamp</div>
-              <div>Dec 2022 - Sep 2023</div>
-            </div>
-            <div class="title">
-              <div class="role">Teacher's Assistant</div>
-              <div class="location">Saratoga, CA</div>
-            </div>
-            <p>
-              Taught students algorithms and data structures, wrote problems,
-              test cases, and solutions, and held weekly office hours.
-            </p>
-          </li>
-        </ul>
-        <Image class="decoration light-only" src={bottom1_light} alt="" />
-        <Image class="decoration dark-only" src={bottom1_dark} alt="" />
-      </div>
+      <h1>Work</h1>
+      <ul class="sl">
+        <li>
+          <b>TikTok | Multimedia AI</b>
+          <div>Software Intern</div>
+          <div>San Jose, CA</div>
+          <small>Aug 2025 - Nov 2025</small>
+        </li>
+        <li>
+          <b>Amazon | Kindle</b>
+          <div>Software Intern</div>
+          <div>Sunnyvale, CA</div>
+          <small>May 2025 - Aug 2025</small>
+        </li>
+        <li>
+          <b>IBM | FileNet</b>
+          <div>Software Intern</div>
+          <div>San Jose, CA</div>
+          <small>Jan 2025 - May 2025</small>
+        </li>
+        <li>
+          <b>Department of Defense</b>
+          <div>Software Intern</div>
+          <div>Keyport, WA</div>
+          <small>Jun 2024 - Aug 2024</small>
+        </li>
+        <li>
+          <b>XCamp</b>
+          <div>Teacher's Assistant</div>
+          <div>Saratoga, CA</div>
+          <small>Dec 2022 - Sep 2023</small>
+        </li>
+      </ul>
     </main>
   </body>
 </html>

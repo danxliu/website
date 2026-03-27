@@ -1,16 +1,9 @@
 ---
-import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import BaseHead from "../../components/BaseHead.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 import Header from "../../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
-
-import top1_light from "../../assets/top1_light.png";
-import top1_dark from "../../assets/top1_dark.png";
-import bottom1_light from "../../assets/bottom1_light.png";
-import bottom1_dark from "../../assets/bottom1_dark.png";
-import Separator from "../../components/Separator.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -21,66 +14,26 @@ const posts = (await getCollection("blog")).sort(
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style>
-      ul {
-        align-self: center;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        gap: 2rem;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        max-width: 600px;
-      }
-      ul li {
-        outline: 2px solid var(--accent-color);
-        padding: 1em;
-        width: 100%;
-      }
-      ul li a {
-        text-decoration: none;
-        display: block;
-      }
-      .title {
-        margin: 0;
-        color: var(--text-color);
-        line-height: 1;
-      }
-      .date {
-        margin: 0;
-        color: var(--accent-color);
-      }
-    </style>
   </head>
   <body>
     <Header />
     <main>
-      <section>
-        <div class="content">
-          <Image class="decoration light-only" src={top1_light} alt="" />
-          <Image class="decoration dark-only" src={top1_dark} alt="" />
-          <h1 class="page-title">BLOGS</h1>
-          <div class="page-title"><Separator /></div>
-          <ul>
-            {
-              posts.map((post) => (
-                <li>
-                  <a href={`/blog/${post.id}/`}>
-                    <h4 class="title">{post.data.title}</h4>
-                    <p class="date">
-                      <FormattedDate date={post.data.pubDate} />
-                    </p>
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-          <Image class="decoration light-only" src={bottom1_light} alt="" />
-          <Image class="decoration dark-only" src={bottom1_dark} alt="" />
-        </div>
-      </section>
+      <h1>Blogs</h1>
+      <ul class="sl">
+        {
+          posts.map((post) => (
+            <li>
+              <a href={`/blog/${post.id}/`}>
+                <strong>{post.data.title}</strong>
+              </a>
+              <br />
+              <small>
+                <FormattedDate date={post.data.pubDate} />
+              </small>
+            </li>
+          ))
+        }
+      </ul>
     </main>
   </body>
 </html>

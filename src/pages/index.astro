@@ -1,59 +1,46 @@
 ---
-import { Image } from "astro:assets";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
-
-import top0_light from "../assets/top0_light.png";
-import top0_dark from "../assets/top0_dark.png";
-import bottom0_light from "../assets/bottom0_light.png";
-import bottom0_dark from "../assets/bottom0_dark.png";
-import Separator from "../components/Separator.astro";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style>
-      .content {
-        align-items: center;
-      }
-      .socials {
-        display: flex;
-        flex-direction: column;
-        align-self: flex-start;
-        gap: 0;
-      }
-    </style>
   </head>
   <body>
     <Header />
     <main>
-      <div class="content">
-        <Image class="decoration light-only" src={top0_light} alt="" />
-        <Image class="decoration dark-only" src={top0_dark} alt="" />
-        <h1 class="page-title">DANIEL LIU</h1>
-        <div class="page-title"><Separator/></div>
-        <div class="section">
-          <div>cs & ds @ berkeley.</div>
-          <div>graduating spring 2026.</div>
-          <div>prev intern @ IBM, Amazon, TikTok</div>
-        </div>
-        <Separator />
-        <div class="section">
-          <div>email: danielliu[at]berkeley[dot]edu</div>
-          <div>github: <a href="https://github.com/danxliu">danxliu</a></div>
-          <div>discord: untrustedaccount</p>
-          <div>
-            steam: <a href="https://steamcommunity.com/id/untrusted_account"
-              >untrusted_account</a
-            >
-          </div>
-        </div>
-        <Image class="decoration light-only" src={bottom0_light} alt="" />
-        <Image class="decoration dark-only" src={bottom0_dark} alt="" />
-      </div>
+      <h1>About Me</h1>
+      <p>Welcome to my website!</p>
+      <p>
+        My name is Daniel Liu. I'm a Senior at UC Berkeley majoring in Computer
+        Science, graduating in Spring 2026. At school, I'm a staff member of the <a
+          href="https://ocf.io"
+          target="_blank">Open Computing Facility</a
+        >.
+      </p>
+      <p>
+        I am a previous intern at a few large tech companies, including TikTok,
+        Amazon, and IBM.
+      </p>
+      <p>
+        Outside of school, I enjoy hiking, swimming, and table tennis. I play
+        way too many games, mostly fps or open world survival games. I could
+        also be working on my homelab or rewriting my Linux dotfiles again.
+      </p>
+      <h2>Socials</h2>
+      <ul>
+        <li>email: danielliu[at]berkeley[dot]edu</li>
+        <li>github: <a href="https://github.com/danxliu">danxliu</a></li>
+        <li>discord: untrustedaccount</li>
+        <li>
+          steam: <a href="https://steamcommunity.com/id/untrusted_account"
+            >untrusted_account</a
+          >
+        </li>
+      </ul>
     </main>
   </body>
 </html>
