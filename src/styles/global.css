@@ -145,8 +145,8 @@ article code {
 }
 
 article pre {
-  margin: 0 0 1rem;
-  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  padding: 1rem;
   background-color: var(--accent-color);
   overflow-x: auto;
 }
@@ -157,9 +157,9 @@ article pre code {
 }
 
 input[type="text"] {
-  background-color: var(--accent-color);
+  border: 2px solid var(--accent-color);
   color: var(--text-color);
-  border: none;
+  background-color: var(--bg-color);
   padding: 1rem;
   margin: 1rem 0;
   outline: none;
