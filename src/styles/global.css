@@ -1,7 +1,7 @@
 :root {
   --black: #0f0f0f;
-  --white: #cacaca;
-  --accent-color: #4c4c4c;
+  --white: #f0f0f0;
+  --accent-color: #767676;
   --bg-color: var(--white);
   --text-color: var(--black);
 }
@@ -9,6 +9,7 @@
 :root[data-theme='dark'] {
   --bg-color: var(--black);
   --text-color: var(--white);
+  --accent-color: #393939;
 }
 
 body {
@@ -153,4 +154,18 @@ article pre {
 article pre code {
   border: 0;
   padding: 0;
+}
+
+input[type="text"] {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  border: none;
+  padding: 1rem;
+  margin: 1rem 0;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: none;
+  color: var(--text-color);
 }
