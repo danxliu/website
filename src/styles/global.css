@@ -1,7 +1,7 @@
 :root {
   --black: #0f0f0f;
   --white: #f0f0f0;
-  --accent: #767676;
+  --accent: #262626;
   --bg: var(--white);
   --text: var(--black);
   --green: #8aac8b;
@@ -11,7 +11,7 @@
 :root[data-theme='dark'] {
   --bg: var(--black);
   --text: var(--white);
-  --accent: #393939;
+  --accent: #a0a0a0;
 }
 
 body {
