@@ -177,7 +177,6 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         const response = await fetch(`/api/stock/${symbol}`);
         if (!response.ok) continue;
         const data = await response.json();
-        console.log(data);
         const round = (str: string) => parseFloat(str).toFixed(2);
         const tprice = round(data.regularMarketPrice) || "N/A";
         const tsymbol = data.symbol;
