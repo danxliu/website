@@ -1,0 +1,13 @@
+services:
+  astro-site:
+    image: nginx:alpine
+    container_name: astro-container
+    restart: unless-stopped
+    volumes:
+      - ./dist:/usr/share/nginx/html:ro
+    networks:
+      - proxy-nw
+
+networks:
+  proxy-nw:
+    external: true
