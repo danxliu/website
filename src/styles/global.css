@@ -1,21 +1,23 @@
 :root {
   --black: #0f0f0f;
   --white: #f0f0f0;
-  --accent-color: #767676;
-  --bg-color: var(--white);
-  --text-color: var(--black);
+  --accent: #767676;
+  --bg: var(--white);
+  --text: var(--black);
+  --green: #8aac8b;
+  --red: #ac8a8c;
 }
 
 :root[data-theme='dark'] {
-  --bg-color: var(--black);
-  --text-color: var(--white);
-  --accent-color: #393939;
+  --bg: var(--black);
+  --text: var(--white);
+  --accent: #393939;
 }
 
 body {
   font-family: sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: var(--bg);
+  color: var(--text);
   margin: 0;
   box-sizing: border-box;
   padding: 2rem 1rem;
@@ -47,12 +49,12 @@ a {
 }
 
 a:hover {
-  color: var(--accent-color);
+  color: var(--accent);
 }
 
 small,
 time {
-  color: var(--accent-color);
+  color: var(--accent);
 }
 
 header {
@@ -63,7 +65,7 @@ nav {
   display: flex;
   gap: 1rem;
   align-items: center;
-  border-bottom: 2px solid var(--text-color);
+  border-bottom: 2px solid var(--text);
   padding-bottom: 1rem;
 }
 
@@ -73,8 +75,8 @@ nav #theme-toggle {
 
 #theme-toggle {
   cursor: pointer;
-  color: var(--bg-color);
-  background-color: var(--text-color);
+  color: var(--bg);
+  background-color: var(--text);
   padding: 0.2rem 0.5rem;
   border: none;
   font-family: inherit;
@@ -82,9 +84,9 @@ nav #theme-toggle {
 }
 
 #theme-toggle:hover {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
-  color: var(--bg-color);
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
 }
 
 ul,
@@ -99,7 +101,7 @@ ol {
   flex-direction: column;
   gap: 0.5em;
   & > li {
-    border-left: 2px solid var(--accent-color);
+    border-left: 2px solid var(--accent);
     padding-left: 1.25rem;
   }
 }
@@ -135,19 +137,19 @@ article ol {
 article blockquote {
   margin: 0 0 1rem;
   padding: 0 0 0 1rem;
-  border-left: 2px solid var(--accent-color);
-  color: var(--accent-color);
+  border-left: 2px solid var(--accent);
+  color: var(--accent);
 }
 
 article code {
-  border: 2px solid var(--accent-color);
+  border: 2px solid var(--accent);
   padding: 0.1rem 0.35rem;
 }
 
 article pre {
   margin: 1rem 0;
   padding: 1rem;
-  background-color: var(--accent-color);
+  background-color: var(--accent);
   overflow-x: auto;
 }
 
@@ -157,15 +159,22 @@ article pre code {
 }
 
 input[type="text"] {
-  border: 2px solid var(--accent-color);
-  color: var(--text-color);
-  background-color: var(--bg-color);
+  border: 2px solid var(--accent);
+  color: var(--text);
+  background-color: var(--bg);
   padding: 1rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   outline: none;
 }
 
 input[type="text"]:focus {
   border-color: none;
-  color: var(--text-color);
+  color: var(--text);
+}
+
+hr {
+  background-color: var(--accent);
+  border: none;
+  margin: 1.2rem 0;
+  height: 2px;
 }

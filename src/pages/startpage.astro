@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
@@ -10,20 +9,31 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   <style>
     .row {
       display: flex;
-      justify-content: space-evenly;
-      height: 60vh;
+      justify-content: space-between;
     }
-    .centered {
+    :global(.up) {
+      background-color: var(--green);
+      color: var(--black);
+      padding: 0.1rem 0.35rem;
+    }
+    :global(.down) {
+      background-color: var(--red);
+      color: var(--black);
+      padding: 0.1rem 0.35rem;
+    }
+    :global(#stocks) {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      list-style: none;
+      padding: 0;
     }
-
-    .art {
-      font: monospace;
-      font-size: 8px;
-      color: var(--text-color);
+    :global(#stocks > li) {
+      flex: 1 1 0;
+      min-width: 8rem;
+      border-left: 2px solid var(--accent);
+      padding-left: 0.75rem;
     }
   </style>
 
@@ -31,48 +41,39 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
   <body>
     <Header />
-    <main class="row">
-      <div class="centered">
-        <h2 id="welcome">Hello.</h2>
-        <input
-          id="search"
-          type="text"
-          autofocus
-          autocomplete="off"
-          placeholder="Search Google..."
-        />
+    <main>
+      <h2 id="welcome">Hello.</h2>
+      <div>
         <time id="time">00:00AM</time>
+      </div>
+      <div>
         <small id="weather">?°F</small>
       </div>
-      <pre
-        class="art centered">
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⣾⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⢿⡀⠀⠀⠀⠀⠀⠀⠀⠰⠀⠀⠻⠁⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⣾⡇⠀⢸⣇⠀⠀⠀⡄⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⢀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠇⠀⠀⣸⣿⠁⠀⢸⣿⡄⠀⠀⢹⡄⠀⠀⠙⠀⠀⠀⠀⠀⡀⢸⡆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⡏⠀⠀⢠⣿⣿⠀⠀⠈⣿⣷⡀⠀⠀⢿⣄⢠⣴⠇⠀⠀⠀⠀⠁⠞⠀
-⠀⠀⠀⠀⠀⠀⠀⢀⣼⡟⠀⠀⢠⣿⣿⡇⠀⠀⠀⢻⣿⣷⡀⠀⠈⢿⣾⡁⣠⠄⠀⠀⠀⣀⣴⠂
-⠀⠀⠀⠀⠀⠀⣠⣿⠏⠀⠀⢀⣿⣿⣿⠀⠀⠀⠀⠘⣿⣿⣷⣴⠃⠈⢻⣿⣏⠀⠀⠀⣼⣿⠃⠀
-⠀⠀⠀⠀⢀⣾⣿⠋⠀⠀⠀⣼⣿⣿⡇⠀⠀⠀⢠⠀⣿⣿⣿⣿⠂⠀⠀⢻⣿⣦⡀⠀⠀⠀⠀⠀
-⠀⠀⠀⣰⣿⣿⠃⠀⠀⠀⢠⣿⣿⣿⡇⠀⠀⣾⡟⠀⣸⣿⣿⣿⡀⢀⡇⠀⠹⣿⣷⣄⠀⠀⠀⠀
-⠀⢀⣾⣿⣿⡏⠀⠀⠀⠀⣾⣿⣿⣿⡀⠀⠘⠋⠀⣾⢿⣿⣿⣿⡇⠀⠀⠀⠀⣿⣿⣿⣦⠀⠀⠀
-⢀⣾⣿⣿⣿⣧⠀⠀⠀⣰⣿⣿⣿⣿⡇⠀⠀⢠⡄⠁⣸⣿⣿⣿⣿⣄⠀⠀⠀⣿⣿⣿⣿⣧⠀⠀
-⠈⠙⠻⢿⣿⣿⣦⣄⠀⠉⢻⣿⣿⣿⣷⡀⠀⠈⠀⢠⣿⣿⣿⣿⠟⠁⠀⣠⣾⣿⣿⡿⠛⠋⠀⠀
-⠀⠀⠀⢈⣿⣿⣿⠃⠀⠀⠀⢻⣿⣿⣿⠁⠀⠀⠀⠙⣿⣿⣿⡏⠀⠀⠀⢹⣿⣿⣿⠀⠀⠀⠀⠀
-⠀⠀⠀⠙⢿⣿⣿⣄⠀⠀⢀⣾⣿⣿⣷⠀⣾⠀⠀⠀⣿⣿⣿⣧⠀⠀⠀⣸⣿⣿⠿⠃⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠙⣿⣿⣷⣤⣄⣿⣿⣿⣿⣦⡁⠀⣀⣾⣿⣿⣿⣯⣤⣴⣾⣿⡿⠁⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠛⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠟⠃⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⡀⠀⠈⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠋⠀⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⣀⡔⣀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢰⣿⠇⠀⠀⠀⣴⠀⠈⢻⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⡼⠃⠀⠀⢸⠋⠀⠀⠀⠈⠃⠀⠀⠀⢿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠁⠀⠀⠀⠀⠀⢠⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⣴⡿⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠺⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</pre>
+      <input
+        id="search"
+        type="text"
+        autofocus
+        autocomplete="off"
+        placeholder="Search Google..."
+      />
+      <h4>Links</h4>
+      <div class="row">
+        <ul>
+          <li>
+            <a href="https://sites.google.com/berkeley.edu/cs164-sp26/home"
+              >CS164</a
+            >
+          </li>
+          <li>
+            <a href="https://sp26.cs168.io/">CS168</a>
+          </li>
+          <li>
+            <a href="https://cs184.eecs.berkeley.edu/sp26/">CS184</a>
+          </li>
+        </ul>
+      </div>
+      <h4>Stocks</h4>
+      <ul id="stocks"></ul>
     </main>
   </body><script>
     const codes = {
@@ -105,10 +106,24 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
       5: "Friday",
       6: "Saturday",
     };
+
+    const symbols = [
+      "voo",
+      "qqq",
+      "googl",
+      "amzn",
+      "aapl",
+      "meta",
+      "msft",
+      "nvda",
+      "tsla",
+    ];
+
     const welcomeElem = document.getElementById("welcome");
     const weatherElem = document.getElementById("weather");
     const timeElem = document.getElementById("time");
     const searchElem = document.getElementById("search");
+    const stocksElem = document.getElementById("stocks");
     searchElem?.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
         const query = (e.target as HTMLInputElement).value;
@@ -118,7 +133,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
       }
     });
 
-    async function fetchWeather() {
+    const fetchWeather = async () => {
       if (!weatherElem) return;
       try {
         const res = await fetch("https://get.geojs.io/v1/ip/geo.json");
@@ -137,9 +152,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         weatherElem.style.display = "none";
         console.error("Weather fetch error:", error);
       }
-    }
+    };
 
-    const timeFn = () => {
+    const fetchTime = () => {
       if (!timeElem || !welcomeElem) return;
       const date = new Date();
       const hours = date.getHours();
@@ -150,12 +165,38 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
       const tminutes = minutes >= 10 ? minutes : `0${minutes}`;
       const tday = days[day];
       timeElem.innerText = `${tday}, ${thours}:${tminutes} ${ampm}`;
-      if (hours < 12) welcomeElem.innerText = "Good Morning";
-      else if (hours < 18) welcomeElem.innerText = "Good Afternoon";
-      else welcomeElem.innerText = "Good Night";
+      if (hours < 12) welcomeElem.innerText = "Good Morning.";
+      else if (hours < 18) welcomeElem.innerText = "Good Afternoon.";
+      else welcomeElem.innerText = "Good Night.";
     };
-    setInterval(timeFn, 1000);
-    timeFn();
+
+    const fetchStocks = async () => {
+      if (!stocksElem) return;
+      let html = "";
+      for (const symbol of symbols) {
+        const response = await fetch(`/api/stock/${symbol}`);
+        if (!response.ok) continue;
+        const data = await response.json();
+        console.log(data);
+        const round = (str: string) => parseFloat(str).toFixed(2);
+        const tprice = round(data.regularMarketPrice) || "N/A";
+        const tsymbol = data.symbol;
+        const tperc = round(data.regularMarketChangePercent);
+        const tpercsymbol =
+          parseFloat(data.regularMarketChangePercent) > 0 ? "↑" : "↓";
+        const tpercclass =
+          parseFloat(data.regularMarketChangePercent) > 0 ? "up" : "down";
+        html += `<li><b>${tsymbol}</b><div>$${tprice} <span class='${tpercclass}'>${tpercsymbol}${tperc}%</span></div></li>`;
+      }
+      stocksElem.innerHTML = html;
+    };
+    fetchTime();
     fetchWeather();
+    fetchStocks();
+    setInterval(() => {
+      fetchTime();
+      fetchWeather();
+      fetchStocks();
+    }, 10000);
   </script>
 </html>
