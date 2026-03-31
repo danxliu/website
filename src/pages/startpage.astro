@@ -9,7 +9,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   <style>
     .row {
       display: flex;
-      justify-content: space-between;
+      gap: 1rem;
     }
     :global(.up) {
       background-color: var(--green);
@@ -24,6 +24,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     :global(#stocks) {
       display: flex;
       justify-content: space-evenly;
+      align-items: flex-start;
       flex-wrap: wrap;
       gap: 0.75rem;
       list-style: none;
@@ -34,6 +35,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
       min-width: 8rem;
       border-left: 2px solid var(--accent);
       padding-left: 0.75rem;
+      margin-top: 0;
     }
   </style>
 
@@ -69,6 +71,14 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
           </li>
           <li>
             <a href="https://cs184.eecs.berkeley.edu/sp26/">CS184</a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="https://edstem.org/">Edstem</a>
+          </li>
+          <li>
+            <a href="https://www.gradescope.com/">Gradescope</a>
           </li>
         </ul>
       </div>
