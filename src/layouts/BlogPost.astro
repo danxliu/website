@@ -18,9 +18,7 @@ const { title, description, pubDate, updatedDate } = Astro.props;
     <main>
       <article>
         <h1>{title}</h1>
-        <time datetime={pubDate.toISOString()}>
-          <FormattedDate date={pubDate} />
-        </time>
+        <FormattedDate date={pubDate} />
         <slot />
       </article>
     </main>
