@@ -1,7 +1,7 @@
 ---
-title: 'dwm'
-description: 'Configuring DWM'
-pubDate: 'June 16 2024'
+title: dwm
+description: Configuring DWM
+pubDate: June 16 2024
 ---
 
 DWM stands for "Dynamic Window Manager," and, like its name indicates, is a dynamic window manager for X11.
